@@ -1,5 +1,8 @@
 let gameLandingImage = $("#game-landing_image");
 let usefulInfo;
+var userInput= $(".user-input");
+var userSubmit= $(".user-submit");
+var userHolder;
 
 $.ajax({
     async: true,
@@ -15,6 +18,14 @@ $.ajax({
     console.log(usefulInfo)
     gameLandingImage.attr("src", usefulInfo.keyImages[0].url);
 });
+
+function getuserInput() {
+    userHolder= document.querySelector(".user-input").value;
+    console.log(userInput);
+    console.log(userHolder);
+};
+
+userSubmit.on('click', getuserInput)
 
 // $.ajax({
 // url: ,
