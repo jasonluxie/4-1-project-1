@@ -35,4 +35,3 @@ $.ajax({
 function modalToggle() {
     modalContainer.toggleClass('is-active')
 }
-
