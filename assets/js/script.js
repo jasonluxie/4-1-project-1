@@ -1,5 +1,10 @@
 let gameLandingImage = $("#game-landing_image");
 let usefulInfo;
+
+var userInput= $(".user-input");
+var userSubmit= $(".user-submit");
+var userHolder;
+
 let modalBackground = $(".modal-background");
 let modalCloseButton = $(".modal-close");
 let modalUnderstand = $(".modal-understand");
@@ -10,6 +15,7 @@ modalBackground.on('click', modalToggle)
 modalCloseButton.on('click', modalToggle)
 modalUnderstand.on('click', modalToggle)
 modalOpen.on('click', modalToggle)
+
 
 $.ajax({
     async: true,
@@ -26,6 +32,14 @@ $.ajax({
     // console.log(usefulInfo);
     gameLandingImage.attr("src", usefulInfo.keyImages[0].url);
 });
+
+function getuserInput() {
+    userHolder= document.querySelector(".user-input").value;
+    console.log(userInput);
+    console.log(userHolder);
+};
+
+userSubmit.on('click', getuserInput)
 
 // $.ajax({
 // url: ,
