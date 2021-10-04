@@ -9,9 +9,19 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css'>
     <link rel="stylesheet" href="./assets/css/game-information.css">
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' defer></script>
-    <script src="./assets/js/game-information.js"></script>
+    <script src="./assets/js/game-information.js" defer></script>
 </head>
-<body>
-    
+<body class="columns">
+    <section class="image-container column">
+        <image class="image image-landing"></image>
+    </section>
+    <section class="game column">
+        <div class="game-name"></div>
+        <div class="game-description"></div>
+        <div class="game-year"></div>
+        <div class="game-genre"></div>
+        <button class="button game-link"></button>
+    </section>
+    <section class="empty-container column"></section>
 </body>
 </html>
