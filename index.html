@@ -19,16 +19,24 @@
     </head>
     <body class="columns">
         <!-- To activate Modal, add the class "is-active to the modal div. " -->
-        <section class="modal">
+        <section class="modal modal-container is-active">
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
-                    <p class="modal-card-title">Epic Store Free Game Checker</p>
-                    <button class="delete" aria-label="close"></button>
+                    <p class="modal-card-title is-size-2">Epic Store Free Game Checker</p>
+                    <button class="delete modal-close" aria-label="close"></button>
                 </header>
                 <section class="modal-card-body">
-                    <!-- Functionality of Website -->
-                    banana
+                    <h2 class="is-size-3">Welcome to our application! </h2>
+                    <p>This application checks if in your Steam account, you already own the current free game on the Epic Games store.</p>
+                    <h2 class="is-size-3">Instructions</h2>
+                    <ol>
+                        <li>Go to the <a href="https://store.steampowered.com/" target="_blank">Steam store</a></li>
+                        <li>In the top right of the screen, click on your profile.<img src=".\assets\images\Modal -Go-To-Profile.png"></li>
+                        <li>On your profile page, copy the userID in the url. It's not always a number but in general the url follows this format. <img src=".\assets\images\Modal-URL-Steam-ID.png"></li>
+                        <li>Input the steamID in the form at the bottom of the page</li>
+                        <li>Click submit!</li>
+                    </ol>
                 </section>
                 <footer
                     class="modal-card-foot is-flex is-justify-content-center"
@@ -41,7 +49,7 @@
         </section>
         <!-- End of Modal -->
         <section id="side-button">
-            <button>></button>
+            <button class="modal-open">></buttonclass>
         </section>
         <section class="main-content game-landing column is-6 p-0">
             <img id="game-landing_image" class="image is-3by4 p-0" />
