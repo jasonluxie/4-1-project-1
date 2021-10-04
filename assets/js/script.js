@@ -44,9 +44,10 @@ function gameComparison(freeGameName) {
             "&include_appinfo=true&format=json",
         method: "GET",
     }).then(function (response) {
-        console.log(response.game.length);
-        for (let i = 0; i < response.games.length; i++) {
-            if ((freeGameName = response.games[i].name)) {
+        console.log(response.response.games);
+        console.log(freeGameName)
+        for (let i = 0; i < response.response.games.length; i++) {
+            if ((freeGameName = response.response.games[i].name)) {
                 let userConfirm = confirm(
                     "You already own this game, would you still like to claim the game on the Epic Games Store?"
                 );
