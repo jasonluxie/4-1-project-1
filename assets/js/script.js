@@ -1,21 +1,25 @@
 let gameLandingImage = $("#game-landing_image");
 let usefulInfo;
-
-var userInput= $(".user-input");
-var userSubmit= $(".user-submit");
-var userHolder;
-
+var userInput = $(".user-input");
+var userSubmit = $(".user-submit");
+let userConfirm = $("#user-confirm");
+let userConfirmText = $(".user-confirm_text");
+let userHolder;
 let modalBackground = $(".modal-background");
 let modalCloseButton = $(".modal-close");
 let modalUnderstand = $(".modal-understand");
 let modalContainer = $(".modal-container");
-let modalOpen = $('.modal-open')
+let modalOpenButton = $(".modal-open");
+let modalContinue = $(".continue-button");
 
-modalBackground.on('click', modalToggle)
-modalCloseButton.on('click', modalToggle)
-modalUnderstand.on('click', modalToggle)
-modalOpen.on('click', modalToggle)
+modalBackground.on("click", modalClose);
+modalCloseButton.on("click", modalClose);
+modalUnderstand.on("click", modalClose);
+modalOpenButton.on("click", modalOpen);
 
+modalContinue.on("click", nextPage);
+
+userSubmit.on("click", getuserInput);
 
 $.ajax({
     async: true,
@@ -33,19 +37,52 @@ $.ajax({
     gameLandingImage.attr("src", usefulInfo.keyImages[0].url);
 });
 
+function gameComparison(freeGameName) {
+    $.ajax({
+        url:
+            "https://cors-anywhere.herokuapp.com/https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D83EC65C49F2C1AD89A24EA9844B0EBF&steamid=" +
+            userHolder +
+            "&include_appinfo=true&format=json",
+        method: "GET",
+    }).then(function (response) {
+        console.log(response);
+        // console.log(response.response.games);
+        // console.log(freeGameName);
+        for (let i = 0; i < response.response.games.length; i++) {
+            if (freeGameName == response.response.games[i].name) {
+                userConfirm.toggleClass("is-active");
+                userConfirmText.text(
+                    "You already own this game in your steam library, would you still like to claim the game on the epic games store?"
+                );
+            } else userConfirm.toggleClass("is-active");
+            $(".cancel-button").hide();
+            userConfirmText.text(
+                "You do not own this game, click 'continue' to claim!"
+            );
+        }
+    });
+}
+
 function getuserInput() {
-    userHolder= document.querySelector(".user-input").value;
-    console.log(userInput);
-    console.log(userHolder);
-};
+    userHolder = document.querySelector(".user-input").value;
+    gameComparison(usefulInfo.title);
+}
 
-userSubmit.on('click', getuserInput)
+function modalClose() {
+    if (modalContainer.hasClass("is-active")) {
+        modalContainer.toggleClass("is-active");
+    }
+    if (userConfirm.hasClass("is-active")) {
+        userConfirm.toggleClass("is-active");
+    }
+}
 
-// $.ajax({
-// url: ,
-// method: 'GET',
-// }).then(function (response) {});
+function modalOpen() {
+    if (!modalContainer.hasClass("is-active")) {
+        modalContainer.toggleClass("is-active");
+    } 
+}
 
-function modalToggle() {
-    modalContainer.toggleClass('is-active')
+function nextPage() {
+    window.location.assign("./game-information.html");
 }

@@ -18,7 +18,7 @@
         <script src="./assets/js/script.js" defer></script>
     </head>
     <body class="columns">
-        <!-- To activate Modal, add the class "is-active to the modal div. " -->
+        <!--Modal-1" -->
         <section class="modal modal-container is-active">
             <div class="modal-background"></div>
             <div class="modal-card">
@@ -47,7 +47,25 @@
                 </footer>
             </div>
         </section>
-        <!-- End of Modal -->
+        <!-- Modal-1 -->
+        <!-- Modal-2 -->
+        <section class="modal modal-confirm" id="user-confirm">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Alert</p>
+                <button class="delete modal-close" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body user-confirm_text">
+                You already own this game in your steam library, would you still like to claim the game on the epic games store?
+              </section>
+              <footer class="modal-card-foot">
+                <button class="button is-success continue-button">Continue</button>
+                <button class="button cancel-button">Cancel</button>
+              </footer>
+            </div>
+          </section>
+        <!-- Modal-2 -->
         <section id="side-button">
             <button class="modal-open">></buttonclass>
         </section>
