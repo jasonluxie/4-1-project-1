@@ -1,20 +1,23 @@
 let gameLandingImage = $("#game-landing_image");
 let usefulInfo;
-
 var userInput = $(".user-input");
 var userSubmit = $(".user-submit");
-var userHolder;
-
+let userConfirm = $("#user-confirm");
+let userConfirmText = $(".user-confirm_text");
+let userHolder;
 let modalBackground = $(".modal-background");
 let modalCloseButton = $(".modal-close");
 let modalUnderstand = $(".modal-understand");
 let modalContainer = $(".modal-container");
-let modalOpen = $(".modal-open");
+let modalOpenButton = $(".modal-open");
+let modalContinue = $(".continue-button");
 
-modalBackground.on("click", modalToggle);
-modalCloseButton.on("click", modalToggle);
-modalUnderstand.on("click", modalToggle);
-modalOpen.on("click", modalToggle);
+modalBackground.on("click", modalClose);
+modalCloseButton.on("click", modalClose);
+modalUnderstand.on("click", modalClose);
+modalOpenButton.on("click", modalOpen);
+
+modalContinue.on("click", nextPage);
 
 userSubmit.on("click", getuserInput);
 
@@ -34,8 +37,6 @@ $.ajax({
     gameLandingImage.attr("src", usefulInfo.keyImages[0].url);
 });
 
-
-
 function gameComparison(freeGameName) {
     $.ajax({
         url:
@@ -44,18 +45,20 @@ function gameComparison(freeGameName) {
             "&include_appinfo=true&format=json",
         method: "GET",
     }).then(function (response) {
-        console.log(response.response.games);
-        console.log(freeGameName)
+        console.log(response);
+        // console.log(response.response.games);
+        // console.log(freeGameName);
         for (let i = 0; i < response.response.games.length; i++) {
-            if ((freeGameName = response.response.games[i].name)) {
-                let userConfirm = confirm(
-                    "You already own this game, would you still like to claim the game on the Epic Games Store?"
+            if (freeGameName == response.response.games[i].name) {
+                userConfirm.toggleClass("is-active");
+                userConfirmText.text(
+                    "You already own this game in your steam library, would you still like to claim the game on the epic games store?"
                 );
-                if (userConfirm == true) {
-                    window.location.replace("./game-information.html");
-                }
-            } else alert("You do not own this game, click ahead to claim!");
-            window.location.replace("./game-information.html");
+            } else userConfirm.toggleClass("is-active");
+            $(".cancel-button").hide();
+            userConfirmText.text(
+                "You do not own this game, click 'continue' to claim!"
+            );
         }
     });
 }
@@ -63,10 +66,23 @@ function gameComparison(freeGameName) {
 function getuserInput() {
     userHolder = document.querySelector(".user-input").value;
     gameComparison(usefulInfo.title);
-    // console.log(userInput);
-    // console.log(userHolder);
 }
 
-function modalToggle() {
-    modalContainer.toggleClass("is-active");
+function modalClose() {
+    if (modalContainer.hasClass("is-active")) {
+        modalContainer.toggleClass("is-active");
+    }
+    if (userConfirm.hasClass("is-active")) {
+        userConfirm.toggleClass("is-active");
+    }
+}
+
+function modalOpen() {
+    if (!modalContainer.hasClass("is-active")) {
+        modalContainer.toggleClass("is-active");
+    } 
+}
+
+function nextPage() {
+    window.location.assign("./game-information.html");
 }
