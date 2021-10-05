@@ -18,7 +18,7 @@
         <script src="./assets/js/script.js" defer></script>
     </head>
     <body class="columns">
-        <!--Modal-1" -->
+        <!--Modal-Instruction" -->
         <section class="modal modal-container is-active">
             <div class="modal-background"></div>
             <div class="modal-card">
@@ -47,8 +47,8 @@
                 </footer>
             </div>
         </section>
-        <!-- Modal-1 -->
-        <!-- Modal-2 -->
+        <!-- Modal-Instruction -->
+        <!-- Modal-Continue -->
         <section class="modal modal-confirm" id="user-confirm">
             <div class="modal-background"></div>
             <div class="modal-card">
@@ -65,7 +65,28 @@
               </footer>
             </div>
           </section>
-        <!-- Modal-2 -->
+        <!-- Modal-Continue -->
+        <!-- Modal-Validation -->
+        <section class="modal modal-validation">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title is-size-2">Error</p>
+                    <button class="delete modal-close" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    Please enter a valid steam ID to continue.
+                </section>
+                <footer
+                    class="modal-card-foot is-flex is-justify-content-center"
+                >
+                    <button class="button modal-try-again">
+                        Try again
+                    </button>
+                </footer>
+            </div>
+        </section>
+        <!-- Modal-Validation -->
         <section id="side-button">
             <button class="modal-open">></buttonclass>
         </section>
