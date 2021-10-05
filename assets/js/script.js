@@ -91,5 +91,5 @@ function modalOpen() {
 }
 
 function nextPage() {
-    window.location.assign("./game-information.html");
+    window.location.assign("./game-information.html?");
 }

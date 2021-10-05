@@ -40,10 +40,10 @@ function getGamesNews() {
     }).then(function (response) {
         // console.log(response.appnews.newsitems[0].contents);
         for (let i = 0; i < response.appnews.newsitems.length; i++) {
-            let newsTitle = $('<h2>' + response.appnews.newsitems[i].title + '</h2>')
-            let newsContent = $('<p>' + response.appnews.newsitems[i].contents + '</p>')
-            let newsLink = ('<a href="' + response.appnews.newsitems[i].url + '"> Click to read more </a>')
-            let newsCard = $('<div class="news-card"></div>')
+            let newsTitle = $('<h2 class="is-size-3" >' + response.appnews.newsitems[i].title + '</h2>')
+            let newsContent = $('<p class="is-size-6">' + response.appnews.newsitems[i].contents + '</p>')
+            let newsLink = ('<a class="is-size-6" href="' + response.appnews.newsitems[i].url + '"> Click to read more </a>')
+            let newsCard = $('<div class="news-card mb-2"></div>')
             newsCard.append(newsTitle)
             newsCard.append(newsContent)
             newsCard.append(newsLink)
