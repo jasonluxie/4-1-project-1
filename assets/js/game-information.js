@@ -59,7 +59,7 @@ function getGamesNews() {
         // console.log(response.appnews.newsitems[0].contents);
         for (let i = 0; i < response.appnews.newsitems.length; i++) {
             let newsTitle = $(
-                '<h2 class="is-size-3" >' +
+                '<h2 class="is-size-4" >' +
                     response.appnews.newsitems[i].title +
                     "</h2>"
             );

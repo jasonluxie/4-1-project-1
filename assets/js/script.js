@@ -6,7 +6,7 @@ let userConfirm = $("#user-confirm");
 let userConfirmText = $(".user-confirm_text");
 let userHolder;
 let modalBackground = $(".modal-background");
-let modalValidation = $('.modal-validation')
+let modalValidation = $(".modal-validation");
 let modalCloseButton = $(".modal-close");
 let modalUnderstand = $(".modal-understand");
 let modalContainer = $(".modal-container");
@@ -17,9 +17,12 @@ modalBackground.on("click", modalClose);
 modalCloseButton.on("click", modalClose);
 modalUnderstand.on("click", modalClose);
 modalOpenButton.on("click", modalOpen);
-$('.modal-try-again').on('click', modalClose)
+$(".modal-try-again").on("click", modalClose);
 modalContinue.on("click", nextPage);
+
 userSubmit.on("click", getuserInput);
+userInput.val(localStorage.getItem("userInput"));
+
 $.ajax({
     async: true,
     crossDomain: true,
@@ -32,7 +35,6 @@ $.ajax({
 }).then(function (response) {
     usefulInfo =
         response.freeGames.current[response.freeGames.current.length - 1];
-    // console.log(usefulInfo);
     gameLandingImage.attr("src", usefulInfo.keyImages[0].url);
 });
 
@@ -45,9 +47,7 @@ function gameComparison(freeGameName) {
         method: "GET",
     })
         .then(function (response) {
-            console.log(response);
-            // console.log(response.response.games);
-            // console.log(freeGameName);
+            localStorage.setItem("userInput", userHolder);
             for (let i = 0; i < response.response.games.length; i++) {
                 if (freeGameName == response.response.games[i].name) {
                     userConfirm.toggleClass("is-active");
@@ -63,13 +63,14 @@ function gameComparison(freeGameName) {
             }
         })
         .catch(function () {
-            modalValidation.toggleClass('is-active')
+            modalValidation.toggleClass("is-active");
         });
 }
 
 function getuserInput() {
     userHolder = document.querySelector(".user-input").value;
     gameComparison(usefulInfo.title);
+    $(".user-input").val("");
 }
 
 function modalClose() {
