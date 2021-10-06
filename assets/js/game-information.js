@@ -31,29 +31,12 @@ $.ajax({
     //button link
     urlSlug = usefulInfo.urlSlug;
     gameLink.attr("src", "https://www.epicgames.com/store/en-US/p/" + urlSlug);
-    let gameTitle = usefulInfo.title
-    console.log(gameTitle);
+    let gameTitle = usefulInfo.title;
+    // console.log(gameTitle);
     // findGameByID(gameTitle)
+    getGamesNews();
+    getGamesInfo();
 });
-
-function getGamesNews() {
-    $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=236850&count=3&maxlength=300&format=json",
-        method: "GET",
-    }).then(function (response) {
-        // console.log(response.appnews.newsitems[0].contents);
-        for (let i = 0; i < response.appnews.newsitems.length; i++) {
-            let newsTitle = $('<h2 class="is-size-3" >' + response.appnews.newsitems[i].title + '</h2>')
-            let newsContent = $('<p class="is-size-6">' + response.appnews.newsitems[i].contents + '</p>')
-            let newsLink = ('<a class="is-size-6" href="' + response.appnews.newsitems[i].url + '"> Click to read more </a>')
-            let newsCard = $('<div class="news-card mb-2"></div>')
-            newsCard.append(newsTitle)
-            newsCard.append(newsContent)
-            newsCard.append(newsLink)
-            gameNews.append(newsCard)
-        }
-    });
-}
 
 // function findGameByID(gameName) {
 //     $.ajax({
@@ -68,9 +51,50 @@ function getGamesNews() {
 //     });
 // }
 
+function getGamesNews() {
+    $.ajax({
+        url: "https://cors-anywhere.herokuapp.com/https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=236850&count=3&maxlength=300&format=json",
+        method: "GET",
+    }).then(function (response) {
+        // console.log(response.appnews.newsitems[0].contents);
+        for (let i = 0; i < response.appnews.newsitems.length; i++) {
+            let newsTitle = $(
+                '<h2 class="is-size-3" >' +
+                    response.appnews.newsitems[i].title +
+                    "</h2>"
+            );
+            let newsContent = $(
+                '<p class="is-size-6">' +
+                    response.appnews.newsitems[i].contents +
+                    "</p>"
+            );
+            let newsLink =
+                '<a class="is-size-6" href="' +
+                response.appnews.newsitems[i].url +
+                '"> Click to read more </a>';
+            let newsCard = $('<div class="news-card mb-2"></div>');
+            newsCard.append(newsTitle);
+            newsCard.append(newsContent);
+            newsCard.append(newsLink);
+            gameNews.append(newsCard);
+        }
+    });
+}
 
-getGamesNews();
-
+function getGamesInfo() {
+    $.ajax({
+        url: "https://cors-anywhere.herokuapp.com/https://store.steampowered.com/api/appdetails?appids=236850",
+        method: "GET",
+    }).then(function (response) {
+        // console.log(response[236850])
+        gameYear.text("Release Date: " + response[236850].data.release_date.date)
+        // console.log(gameYear)
+        for (let i = 0; i < response[236850].data.genres.length; i++) {
+            // console.log(response[236850].data.genres[i].description)
+            gameGenre.append("<li class='ml-5'>" + response[236850].data.genres[i].description + "</li>")  
+        }
+    });
+}
 
 function pageLink() {
     window.location.assign(
