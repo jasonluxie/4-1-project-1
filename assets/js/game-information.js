@@ -87,11 +87,17 @@ function getGamesInfo() {
         method: "GET",
     }).then(function (response) {
         // console.log(response[236850])
-        gameYear.text("Release Date: " + response[236850].data.release_date.date)
+        gameYear.text(
+            "Release Date: " + response[236850].data.release_date.date
+        );
         // console.log(gameYear)
         for (let i = 0; i < response[236850].data.genres.length; i++) {
             // console.log(response[236850].data.genres[i].description)
-            gameGenre.append("<li class='ml-5'>" + response[236850].data.genres[i].description + "</li>")  
+            gameGenre.append(
+                "<li class='ml-5'>" +
+                    response[236850].data.genres[i].description +
+                    "</li>"
+            );
         }
     });
 }
