@@ -8,5 +8,21 @@
 
 .columns {
     background-color: var(--background-dark-blue);
+    color: white;
 }
 
+.news-card {
+    background-color: rgba(192, 189, 189, 0.774);
+    color:lightcyan;
+    padding:0 0.5rem;
+}
+
+.is-size-3 {
+    color:white;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
