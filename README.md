@@ -8,4 +8,7 @@ Application checks if you own the current free game on the Epic games store on s
 
 ## Notes
 Steam keys are bound to profile, so you can only use my user ID at the moment. 
-76561197996475774
+my ID: 76561197996475774
+
+## Future Development
+* Try to obtain key to access all public accounts on steam instead of having keys be assigned to individual accounts.
