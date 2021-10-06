@@ -18,6 +18,8 @@ body {
 .user-submit{
     background-color: var(--button-color);
     color: white;
+    width:50%;
+    margin: 0 auto;
 }
 
 .modal-open{
