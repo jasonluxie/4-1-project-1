@@ -70,7 +70,7 @@ function gameComparison(freeGameName) {
 function getuserInput() {
     userHolder = document.querySelector(".user-input").value;
     gameComparison(usefulInfo.title);
-    $(".user-input").val("");
+    $('.user-input').val('')
 }
 
 function modalClose() {
@@ -85,6 +85,11 @@ function modalClose() {
     }
 }
 
+
+// $.ajax({
+// url: ,
+// method: 'GET',
+// }).then(function (response) {});
 function modalOpen() {
     if (!modalContainer.hasClass("is-active")) {
         modalContainer.toggleClass("is-active");
