@@ -70,6 +70,7 @@ function gameComparison(freeGameName) {
 function getuserInput() {
     userHolder = document.querySelector(".user-input").value;
     gameComparison(usefulInfo.title);
+    $('.user-input').val('')
 }
 
 function modalClose() {
@@ -84,23 +85,16 @@ function modalClose() {
     }
 }
 
-<<<<<<< HEAD
-$('.user-input').click(
-    function(){
-        $(this).val('');
-    });
 
 // $.ajax({
 // url: ,
 // method: 'GET',
 // }).then(function (response) {});
-=======
 function modalOpen() {
     if (!modalContainer.hasClass("is-active")) {
         modalContainer.toggleClass("is-active");
     }
 }
->>>>>>> main
 
 function nextPage() {
     window.location.assign("./game-information.html");
