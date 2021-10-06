@@ -41,6 +41,11 @@ function getuserInput() {
 
 userSubmit.on('click', getuserInput)
 
+$('.user-input').click(
+    function(){
+        $(this).val('');
+    });
+
 // $.ajax({
 // url: ,
 // method: 'GET',
