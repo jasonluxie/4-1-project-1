@@ -6,6 +6,7 @@ let gameGenre = $(".game-genre");
 let gameLink = $(".game-link");
 let gameNews = $(".empty-container");
 let urlSlug;
+let gameAppID;
 gameLink.on("click", pageLink);
 
 $.ajax({
@@ -21,16 +22,18 @@ $.ajax({
     let usefulInfo;
     usefulInfo =
         response.freeGames.current[response.freeGames.current.length - 1];
-    // console.log(usefulInfo);
+    console.log(usefulInfo);
     //Image
     imageLanding.attr("src", usefulInfo.keyImages[0].url);
     //Game title
     gameName.text(usefulInfo.title);
     gameDescription.text(usefulInfo.description);
-
     //button link
     urlSlug = usefulInfo.urlSlug;
     gameLink.attr("src", "https://www.epicgames.com/store/en-US/p/" + urlSlug);
+    let gameTitle = usefulInfo.title
+    console.log(gameTitle);
+    // findGameByID(gameTitle)
 });
 
 function getGamesNews() {
@@ -51,7 +54,24 @@ function getGamesNews() {
         }
     });
 }
+
+// function findGameByID(gameName) {
+//     $.ajax({
+//     url: "https://cors-anywhere.herokuapp.com/http://api.steampowered.com/ISteamApps/GetAppList/v0002/?format=json",
+//     method: 'GET',
+//     }).then(function (response) {
+//         for (let i = 0; i < response.applist.apps.length; i++) {
+//             if (gameName == response.applist.apps[i].name) {
+//                 gameAppID = response.applist.apps[i].appid
+//             } else return console.log("There is no game on steam by that name")
+//         }
+//     });
+// }
+
+
 getGamesNews();
+
+
 function pageLink() {
     window.location.assign(
         "https://www.epicgames.com/store/en-US/p/" + urlSlug
