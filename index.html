@@ -18,7 +18,7 @@
         <script src="./assets/js/script.js" defer></script>
     </head>
     <body class="columns">
-        <!-- To activate Modal, add the class "is-active to the modal div. " -->
+        <!--Modal-Instruction" -->
         <section class="modal modal-container is-active">
             <div class="modal-background"></div>
             <div class="modal-card">
@@ -47,18 +47,63 @@
                 </footer>
             </div>
         </section>
-        <!-- End of Modal -->
+        <!-- Modal-Instruction -->
+        <!-- Modal-Continue -->
+        <section class="modal modal-confirm" id="user-confirm">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Alert</p>
+                <button class="delete modal-close" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body user-confirm_text">
+                You already own this game in your steam library, would you still like to claim the game on the epic games store?
+              </section>
+              <footer class="modal-card-foot">
+                <button class="button is-success continue-button">Continue</button>
+                <button class="button cancel-button">Cancel</button>
+              </footer>
+            </div>
+          </section>
+        <!-- Modal-Continue -->
+        <!-- Modal-Validation -->
+        <section class="modal modal-validation">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title is-size-2">Error</p>
+                    <button class="delete modal-close" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    Please enter a valid steam ID to continue.
+                </section>
+                <footer
+                    class="modal-card-foot is-flex is-justify-content-center"
+                >
+                    <button class="button modal-try-again">
+                        Try again
+                    </button>
+                </footer>
+            </div>
+        </section>
+        <!-- Modal-Validation -->
+        <div class="column">
         <section id="side-button">
             <button class="modal-open">></buttonclass>
         </section>
-        <section class="main-content game-landing column is-6 p-0">
+        </div>
+        <div class="column">
+        <section class="main-content game-landing column is-6 p-0 is-flex is-flex-direction-column">
             <img id="game-landing_image" class="image is-3by4 p-0" />
             <input class="user-input"
                 type="text"
-                placehold="Please enter your Steam ID"
+                placehold="Steam ID"
                 required
             />
-            <button class= "user-submit" value="Search">Sumbit I.D.</button>
+            <button class= "user-submit" value="Search">Submit</button>
+        </div>
         </section>
+        </div>
+        <div class="column"></div>
     </body>
 </html>
