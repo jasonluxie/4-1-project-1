@@ -1,28 +1,72 @@
-
 :root {
     --background-dark-blue: rgb(22, 33, 46);
     --box-color: rgb(39, 65, 86);
-    --text-color:  rgb(103, 193, 235);
+    --text-color: rgb(103, 193, 235);
     --button-color: rgb(83, 157, 199);
 }
 
-.columns {
+html {
+    height: 100%;
     background-color: var(--background-dark-blue);
-    color: white;
 }
 
-.news-card {
-    background-color: rgba(192, 189, 189, 0.774);
-    color:lightcyan;
-    padding:0 0.5rem;
+body {
+    height: 100%;
 }
 
-.is-size-3 {
-    color:white;
+a {
+    color: rgb(141, 157, 250);
+}
+a:hover {
+    color: rgb(186, 194, 243);
 }
 
 .image-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.image {
+    border: 1px solid white;
+}
+.game {
+    color: white;
+}
+.button {
+    background-color: var(--button-color);
+    color: white;
+}
+
+.button:hover {
+    background-color: rgb(117, 188, 230);
+}
+
+.game-video-box {
+    width: 100%;
+    height: 50%;
+}
+
+.game-video {
+    display: block;
+    width: 100%;
+    height: 33%;
+}
+
+.news-card {
+    background-color: rgb(87, 87, 87);
+    padding: 0 0.5rem;
+    width: 98%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.news-title {
+    color: var(--text-color);
+}
+
+.news-text {
+    color: white;
 }

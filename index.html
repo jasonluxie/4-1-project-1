@@ -30,9 +30,10 @@
                     <h2 class="is-size-3">Welcome to our application! </h2>
                     <p>This application checks if in your Steam account, you already own the current free game on the Epic Games store.</p>
                     <h2 class="is-size-3">Instructions</h2>
-                    <ol>
+                    <ol class='ml-2'>
                         <li>Go to the <a href="https://store.steampowered.com/" target="_blank">Steam store</a></li>
                         <li>In the top right of the screen, click on your profile.<img src=".\assets\images\Modal -Go-To-Profile.png"></li>
+                        <li>Your profile settings must be set to public for this to work</li>
                         <li>On your profile page, copy the userID in the url. It's not always a number but in general the url follows this format. <img src=".\assets\images\Modal-URL-Steam-ID.png"></li>
                         <li>Input the steamID in the form at the bottom of the page</li>
                         <li>Click submit!</li>
@@ -41,7 +42,7 @@
                 <footer
                     class="modal-card-foot is-flex is-justify-content-center"
                 >
-                    <button class="button modal-understand">
+                    <button class="button modal-understand modal-button">
                         I understand
                     </button>
                 </footer>
@@ -61,7 +62,7 @@
               </section>
               <footer class="modal-card-foot">
                 <button class="button is-success continue-button">Continue</button>
-                <button class="button cancel-button">Cancel</button>
+                <button class="button cancel-button modal-button">Cancel</button>
               </footer>
             </div>
           </section>
@@ -80,7 +81,7 @@
                 <footer
                     class="modal-card-foot is-flex is-justify-content-center"
                 >
-                    <button class="button modal-try-again">
+                    <button class="button modal-try-again modal-button">
                         Try again
                     </button>
                 </footer>
@@ -89,18 +90,18 @@
         <!-- Modal-Validation -->
         <div class="column">
         <section id="side-button">
-            <button class="modal-open mt-3 ml-4 p-2">Intructions</buttonclass>
+            <button class="button modal-open mt-3 ml-4 p-2 page-button">Instructions</buttonclass>
         </section>
         </div>
         <div class="column">
         <section class="main-content game-landing column p-0 is-flex is-flex-direction-column">
-            <img id="game-landing_image" class="image is-3by4 p-0" />
-            <input class="user-input mt-5"
+            <img id="game-landing_image" class="image is-3by4 p-0 mt-2" />
+            <input class="user-input mt-2 is-size-5"
                 type="text"
                 placehold="Steam ID"
                 required
             />
-            <button class= "user-submit mt-5 p-2" value="Search">Submit</button>
+            <button class= "button user-submit mt-2 p-2 page-button is-size-5" value="Search">Submit</button>
         </div>
         </section>
         </div>
