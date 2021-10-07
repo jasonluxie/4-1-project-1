@@ -4,7 +4,12 @@
     --text-color:  rgb(103, 193, 235);
     --button-color: rgb(83, 157, 199);
 }
-
+a {
+    color: rgb(141, 157, 250);
+}
+a:hover {
+    color: rgb(186, 194, 243);
+}
 html {
     height: 100%;
     background-color: var(--background-dark-blue);
@@ -13,6 +18,30 @@ html {
 body {
     height: 100%;
     
+}
+.modal-card-head {
+    background-color: var(--box-color);
+    border-bottom: 1px solid var(--background-dark-blue);
+}
+
+.modal-card-title {
+    background-color: var(--box-color);
+    color: white;
+}
+
+.modal-card-foot {
+    background-color: var(--box-color);
+    border-top: 1px solid var(--background-dark-blue);
+}
+
+.modal-card-body {
+    color: var(--text-color);
+    background-color: var(--box-color);
+}
+
+.modal-button {
+    background-color: var(--button-color);
+    color: white;
 }
 
 .user-submit{
@@ -30,7 +59,6 @@ body {
 .image {
     border: 1px solid white
 }
-
 
 .page-button:hover {
     background-color: rgb(117, 188, 230);

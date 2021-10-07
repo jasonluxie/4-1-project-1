@@ -60,7 +60,7 @@ function gameComparison(freeGameName) {
                 userConfirm.addClass("is-active");
                 $(".cancel-button").hide();
                 userConfirmText.text(
-                    "You do not own this game, click 'continue' to claim!"
+                    "You do not own this game in your steam library, click 'continue' to claim!"
                 );
             }
         })
