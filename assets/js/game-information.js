@@ -101,7 +101,7 @@ function getGamesInfo() {
 })}
 
 function pageLink() {
-    window.location.assign(
+    window.open(
         "https://www.epicgames.com/store/en-US/p/" + urlSlug
     );
 }
