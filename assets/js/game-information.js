@@ -7,7 +7,7 @@ let gamePrice = $(".game-price");
 let gameGenre = $(".game-genre");
 let gameScore = $(".game-score");
 let gameLink = $(".game-link");
-let gameVideo = $('.game-video')
+let gameVideo = $(".game-video");
 let gameNews = $(".empty-container");
 let urlSlug;
 let gameAppID;
@@ -55,41 +55,50 @@ $.ajax({
 
 function getGamesInfo() {
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://store.steampowered.com/api/appdetails?appids=236850",
+        // url: "https://cors-anywhere.herokuapp.com/https://store.steampowered.com/api/appdetails?appids=236850",
+        url: "https://cors-anywhere.herokuapp.com/https://store.steampowered.com/api/appdetails?appids=621060",
         method: "GET",
     }).then(function (response) {
-        gameYear.text(
-            "Release Date: " + response[236850].data.release_date.date
-        );
-        gameWebsite.html(
-            "Website: <a target='_blank' href='" +
-                response[236850].data.website +
-                "'>" +
-                response[236850].data.website +
-                "</a>"
-        );
-        gamePrice.text(
-            "Regular Price: " +
-                response[236850].data.price_overview.final_formatted
-        );
-        gameScore.html(
-            '<a href ="' +
-                response[236850].data.metacritic.url +
-                '"> Metacritic </a>Score: ' +
-                response[236850].data.metacritic.score
-        );
-        for (let i = 0; i < response[236850].data.genres.length; i++) {
+        if (response[621060].data.release_date) {
+            gameYear.text(
+                "Release Date: " + response[621060].data.release_date.date
+            );
+        } else gameYear.text("Release Date: We're not sure when this game out");
+        if (response[621060].data.website) {
+            gameWebsite.html(
+                "Website: <a target='_blank' href='" +
+                    response[621060].data.website +
+                    "'>" +
+                    response[621060].data.website +
+                    "</a>"
+            );
+        } else gameWebsite.text("Website: We're not sure what the game website is");
+        if (response[621060].data.price_overview) {
+            gamePrice.text(
+                "Regular Price: " +
+                    response[621060].data.price_overview.final_formatted
+            );
+        } else gamePrice.text("Regular Price: We're not sure what the regular price is");
+        if (response[621060].data.metacritic) {
+            gameScore.html(
+                '<a href ="' +
+                    response[621060].data.metacritic.url +
+                    '"> Metacritic </a>Score: ' +
+                    response[621060].data.metacritic.score
+            );
+        } else gameScore.text("Metacritic: There is no metacritic review for this game");
+        if (response[621060].data.genres) {
+        for (let i = 0; i < response[621060].data.genres.length; i++) {
             gameGenre.append(
                 "<li class='ml-5 is-size-5'>" +
-                    response[236850].data.genres[i].description +
+                    response[621060].data.genres[i].description +
                     "</li>"
             );
         }
-        console.log(response[236850].data.movies[1].mp4[480]);
-        gameVideo.attr('src', response[236850].data.movies[1].mp4[480])
-        gameVideo.attr('type', "video/mp4")
-    });
-}
+        gameVideo.attr("src", response[621060].data.movies[1].mp4[480]);
+        gameVideo.attr("type", "video/mp4");
+    } else gameGenre.text('Genre: We\'re not sure what genres this game has');
+})}
 
 function pageLink() {
     window.location.assign(
@@ -99,7 +108,8 @@ function pageLink() {
 
 function getGamesNews() {
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=236850&count=3&maxlength=300&format=json",
+        // url: "https://cors-anywhere.herokuapp.com/https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=236850&count=3&maxlength=300&format=json",
+        url: "https://cors-anywhere.herokuapp.com/https://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=621060&count=3&maxlength=300&format=json",
         method: "GET",
     }).then(function (response) {
         for (let i = 0; i < response.appnews.newsitems.length; i++) {
