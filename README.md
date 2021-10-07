@@ -8,6 +8,11 @@ By inputting your steam ID into this application, you can check weather if in yo
 ## Libraries Used
 * [Jquery](https://jquery.com/)
 * [Bulma](https://bulma.io/) 
+## APIs Used
+* [Epic Games Free Game Information](https://rapidapi.com/thekevinconnor@gmail.com/api/free-epic-games/)
+* [Steam User Owned Games](https://developer.valvesoftware.com/wiki/Steam_Web_API#GetOwnedGames_.28v0001.29)
+* [Steam Game Information](https://partner.steamgames.com/doc/webapi/ISteamApps)
+* [Steam Game News](https://partner.steamgames.com/doc/webapi/ISteamNews)
 ## Contributing Members
 * [jasonluxie](https://github.com/jasonluxie)
 * [FunnyVirus](https://github.com/FunnyVirus)
