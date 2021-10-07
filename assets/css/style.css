@@ -1,9 +1,3 @@
-
-
-body {
-    height:100vh
-}
-
 :root {
     --background-dark-blue: rgb(22, 33, 46);
     --box-color: rgb(39, 65, 86);
@@ -11,8 +5,14 @@ body {
     --button-color: rgb(83, 157, 199);
 }
 
-.columns{
+html {
+    height: 100%;
     background-color: var(--background-dark-blue);
+}
+
+body {
+    height: 100%;
+    
 }
 
 .user-submit{
@@ -25,4 +25,13 @@ body {
 .modal-open{
     background-color: var(--button-color);
     color: white;
+}
+
+.image {
+    border: 1px solid white
+}
+
+
+.page-button:hover {
+    background-color: rgb(117, 188, 230);
 }

@@ -41,25 +41,27 @@ $.ajax({
 function gameComparison(freeGameName) {
     $.ajax({
         url:
-            "https://cors-anywhere.herokuapp.com/https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D83EC65C49F2C1AD89A24EA9844B0EBF&steamid=" +
+            "https://cors-anywhere.herokuapp.com/http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=D83EC65C49F2C1AD89A24EA9844B0EBF&include_appinfo=true&steamid=" +
             userHolder +
-            "&include_appinfo=true&format=json",
+            "&format=json",
         method: "GET",
     })
         .then(function (response) {
+            // console.log(response.response.games)
             localStorage.setItem("userInput", userHolder);
             for (let i = 0; i < response.response.games.length; i++) {
+                // console.log(response.response.games[i].name)
                 if (freeGameName == response.response.games[i].name) {
                     userConfirm.toggleClass("is-active");
                     userConfirmText.text(
                         "You already own this game in your steam library, would you still like to claim the game on the epic games store?"
                     );
-                } else if (userConfirm.toggleClass("is-active")) {
-                    $(".cancel-button").hide();
-                    userConfirmText.text(
-                        "You do not own this game, click 'continue' to claim!"
-                    );
-                }
+                } else console.log("banana");
+                userConfirm.addClass("is-active");
+                $(".cancel-button").hide();
+                userConfirmText.text(
+                    "You do not own this game, click 'continue' to claim!"
+                );
             }
         })
         .catch(function () {
@@ -70,7 +72,7 @@ function gameComparison(freeGameName) {
 function getuserInput() {
     userHolder = document.querySelector(".user-input").value;
     gameComparison(usefulInfo.title);
-    $('.user-input').val('')
+    $(".user-input").val("");
 }
 
 function modalClose() {
@@ -84,7 +86,6 @@ function modalClose() {
         modalValidation.toggleClass("is-active");
     }
 }
-
 
 // $.ajax({
 // url: ,
