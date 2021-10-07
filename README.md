@@ -19,6 +19,8 @@ By inputting your steam ID into this application, you can check weather if in yo
 * [jereyes96](https://github.com/jereyes96)
 * [AlephCadena](https://github.com/AlephCadena)
 ## Future Development
-* Add more interactivity to landing page such a gallery of gameplay images.
-* Implement back-end server requests to parse game library. At the moment the information on the second page is pulled from a static URL as having each user download a 10MB json object seems impractical. 
-* Clean up second page.
+* Add reviews of the free game of the week
+* Implement back-end server requests to parse game library. At the moment the information on the second page is pulled from a static URL as having each user download a 10MB json object seems impractical
+* Add more interactivity to landing page such a gallery of gameplay images
+* Add more interactivity on the second page such as user reviews and community chats 
+
