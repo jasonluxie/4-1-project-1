@@ -47,11 +47,19 @@ body {
 }
 
 .news-card {
-    background-color: rgba(192, 189, 189, 0.774);
+    background-color: rgb(126, 126, 126);
     padding: 0 0.5rem;
     width: 98%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+}
+
+.news-title {
+    color: var(--text-color);
+}
+
+.news-text {
+    color: white;
 }
