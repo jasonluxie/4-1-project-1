@@ -3,8 +3,11 @@
 https://jasonluxie.github.io/4-1-project-1/
 ## Description
 By inputting your steam ID into this application, you can check weather if in your steam library you own the current free Epic Games game of the week. Some relevant information about the game is also provided, in case you aren't interested in the current free game. 
+## Notes IMPORTANT
+You must request access by pressing the button from [this website](https://cors-anywhere.herokuapp.com/) to be able to access the steam API
 ## Demonstation
 ![Demonstration of application, checking modals for instructions, then inputting ID leads to redirect of information page which includes information and a button to link to the game page.](./assets/images/project-demo-gif.gif)
+
 ## Libraries Used
 * [Jquery](https://jquery.com/)
 * [Bulma](https://bulma.io/) 
