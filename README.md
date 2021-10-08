@@ -7,7 +7,6 @@ By inputting your steam ID into this application, you can check weather if in yo
 You must request access by pressing the button from [this website](https://cors-anywhere.herokuapp.com/) to be able to access the steam API
 ## Demonstation
 ![Demonstration of application, checking modals for instructions, then inputting ID leads to redirect of information page which includes information and a button to link to the game page.](./assets/images/project-demo-gif.gif)
-
 ## Libraries Used
 * [Jquery](https://jquery.com/)
 * [Bulma](https://bulma.io/) 
